@@ -1,6 +1,6 @@
 export const config = { runtime: "edge" };
 
-const TARGET_BASE = (process.env.TARGET_DOMAIN || "https://443.cloudjf.com.br").replace(/\/$/, "");
+const TARGET_BASE = (process.env.TARGET_DOMAIN || "443.cloudjf.com.br").replace(/\/$/, "");
 
 const STRIP_HEADERS = new Set([
   "host",
@@ -24,9 +24,9 @@ export default async function handler(req) {
   }
 
   try {
-    const pathStart = req.url.indexOf("/cloudjf/", 8);
+    const pathStart = req.url.indexOf("/", 8);
     const targetUrl =
-      pathStart === -1 ? TARGET_BASE + "/cloudjf/" : TARGET_BASE + req.url.slice(pathStart);
+      pathStart === -1 ? TARGET_BASE + "/" : TARGET_BASE + req.url.slice(pathStart);
 
     const out = new Headers();
     let clientIp = null;
