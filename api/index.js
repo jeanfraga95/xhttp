@@ -1,6 +1,6 @@
 export const config = { runtime: "edge" };
 
-const TARGET_BASE = (process.env.TARGET_DOMAIN || "443.cloudjf.com.br").replace(/\/$/, "");
+const TARGET_BASE = (process.env.TARGET_DOMAIN || "https://443.cloudjf.com.br").replace(/\/$/, "");
 
 const STRIP_HEADERS = new Set([
   "host",
